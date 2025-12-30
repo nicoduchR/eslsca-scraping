@@ -1,14 +1,18 @@
 {
   "name": "eslsca-4chan-scraper",
   "version": "1.0.0",
-  "description": "4chan /pol/ scraper for ESLSCA research project",
+  "description": "4chan multi-board scraper for ESLSCA research project",
   "type": "module",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
     "start": "tsx src/index.ts",
     "start:snapshot": "tsx src/index.ts --mode snapshot",
-    "start:monitor": "tsx src/index.ts --mode monitor"
+    "start:monitor": "tsx src/index.ts --mode monitor",
+    "scrape:pol": "tsx src/index.ts --mode snapshot --board pol",
+    "scrape:x": "tsx src/index.ts --mode snapshot --board x",
+    "monitor:pol": "tsx src/index.ts --mode monitor --board pol",
+    "monitor:x": "tsx src/index.ts --mode monitor --board x"
   },
   "keywords": [
     "4chan",

@@ -2,6 +2,8 @@
 
 ## Projet ESLSCA - Analyse des Discours en Ligne
 
+> **Note** : Ce système supporte tous les boards 4chan (`/pol/`, `/x/`, `/biz/`, etc.) via l'argument `--board`
+
 ---
 
 ## 1. Contexte et Objectifs
@@ -280,17 +282,40 @@ La prochaine étape consistera à appliquer des techniques de NLP (Natural Langu
 # Installation des dépendances
 npm install
 
-# Lancer un snapshot
-npm run start:snapshot
+# Scraper /pol/ (Politically Incorrect)
+npm run scrape:pol
 
-# Lancer la surveillance continue
-npm run start:monitor
+# Scraper /x/ (Paranormal) - idéal pour les théories du complot
+npm run scrape:x
+
+# Scraper n'importe quel board
+npm run start -- --mode snapshot --board biz   # /biz/ - Business & Finance
+npm run start -- --mode snapshot --board v     # /v/ - Video Games
+
+# Surveillance continue de /pol/
+npm run monitor:pol
+
+# Surveillance continue de /x/
+npm run monitor:x
+
+# Options avancées
+npm run start -- --mode snapshot --board x --output ./data/paranormal
 
 # Vérifier le code TypeScript
 npx tsc --noEmit
 ```
 
-### B. Statistiques Typiques
+### B. Boards Recommandés pour l'Analyse
+
+| Board | Code | Contenu typique |
+|-------|------|-----------------|
+| /pol/ | `pol` | Politique, actualités, théories du complot |
+| /x/ | `x` | Paranormal, conspirations, ésotérisme |
+| /biz/ | `biz` | Crypto-monnaies, finance, arnaques |
+| /b/ | `b` | Contenu aléatoire (attention: NSFW) |
+| /v/ | `v` | Jeux vidéo, gaming culture |
+
+### C. Statistiques Typiques
 
 Pour un snapshot du board /pol/ :
 

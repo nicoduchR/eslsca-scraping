@@ -1,6 +1,8 @@
-# 4chan /pol/ Scraper
+# 4chan Multi-Board Scraper
 
-A Node.js/TypeScript scraper for extracting content from 4chan's /pol/ board using the official read-only API.
+A Node.js/TypeScript scraper for extracting content from any 4chan board using the official read-only API.
+
+Supports all boards: `/pol/`, `/x/`, `/b/`, `/v/`, etc.
 
 ## Features
 
@@ -20,31 +22,58 @@ npm install
 
 ## Usage
 
-### Snapshot Mode (One-time scrape)
-
-Scrapes all currently active threads on /pol/:
+### Quick Start (Predefined Boards)
 
 ```bash
-npm run start:snapshot
+# Scrape /pol/ (Politically Incorrect)
+npm run scrape:pol
+
+# Scrape /x/ (Paranormal)
+npm run scrape:x
+
+# Monitor /pol/ continuously
+npm run monitor:pol
+
+# Monitor /x/ continuously
+npm run monitor:x
 ```
 
-### Monitor Mode (Continuous)
+### Custom Board
 
-Continuously monitors for new posts and appends to CSV:
+Use `--board` to scrape any board:
 
 ```bash
-npm run start:monitor
+# Snapshot any board
+npm run start -- --mode snapshot --board v    # /v/ - Video Games
+npm run start -- --mode snapshot --board b    # /b/ - Random
+npm run start -- --mode snapshot --board biz  # /biz/ - Business
+
+# Monitor any board
+npm run start -- --mode monitor --board x
 ```
 
 Press `Ctrl+C` to stop monitoring gracefully.
 
-### Command-line Options
+### All Command-line Options
 
 ```bash
 npm run start -- --mode snapshot     # Snapshot mode (default)
 npm run start -- --mode monitor      # Monitor mode
 npm run start -- --board pol         # Specify board (default: pol)
 npm run start -- --output ./data     # Output directory (default: ./output)
+```
+
+### Examples
+
+```bash
+# Scrape /x/ (Paranormal) - great for conspiracy theories
+npm run start -- --mode snapshot --board x
+
+# Scrape /biz/ (Business & Finance) - crypto discussions
+npm run start -- --mode snapshot --board biz
+
+# Monitor /pol/ and save to custom folder
+npm run start -- --mode monitor --board pol --output ./data/pol
 ```
 
 ## Output Schema
